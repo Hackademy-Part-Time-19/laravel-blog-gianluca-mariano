@@ -22,7 +22,13 @@
     </div>
 
     <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; width: 100%; height: 1000px; ">
-    
+
+    @if (count($articoli) == 0)
+        
+        <p>Non ci sono articoli..</p>
+
+    @else
+
         @foreach ($articoli as $articolo)
 
         
@@ -38,6 +44,10 @@
           
 
         @endforeach
+
+    @endif
+
+        
     
     </div>
     

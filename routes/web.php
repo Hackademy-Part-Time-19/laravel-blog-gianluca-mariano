@@ -29,6 +29,8 @@ Route::get("/articoli", function () {
 
     $articoli = [0 => ["title" => "PC", "category" => "Elettronica", "description" => "PC molto potente per rendering."], 1 => ["title" => "Borsa", "category" => "Moda", "description" => "Borsa tracolla verde."]];
 
+    //$articoli = [];
+
     return view("articoli", ['titolo' => $titolo, 'articoli' => $articoli]);
 
 
