@@ -13,21 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
 
     $titolo = 'Il mio blog';
     return view('home', ['titolo' => $titolo]);
 
     
-});
+})->name("home");
 
 Route::get("/articoli", function () {
 
     $titolo = "Articoli";
-    return view ("articoli", ['titolo' => $titolo]);
+
+    $articoli = [0 => ["title" => "PC", "category" => "Elettronica", "description" => "PC molto potente per rendering."], 1 => ["title" => "Borsa", "category" => "Moda", "description" => "Borsa tracolla verde."]];
+
+    return view("articoli", ['titolo' => $titolo, 'articoli' => $articoli]);
 
 
-});
+})->name("articoli");
 
 Route::get("/chisono", function () {
 
@@ -35,6 +40,19 @@ Route::get("/chisono", function () {
 
     $bio = "Sono un programmatore HTML, CSS, JavaScript e PHP Junior e studio presso Aulab.";
 
-    return view ("chisono", ['titolo' => $titolo, 'bio' => $bio]);
 
-});
+
+    return view("chisono", ['titolo' => $titolo, 'bio' => $bio]);
+
+})->name("chisono");
+
+Route::get("/articolo/{id}", function ($id) {
+
+    $articoli = [0 => ["title" => "PC", "category" => "Elettronica", "description" => "PC molto potente per rendering."], 1 => ["title" => "Borsa", "category" => "Moda", "description" => "Borsa tracolla verde."]];
+
+    $articolo_interessato = $articoli[$id];
+
+    return view("articolo",['articolo_interessato' => $articolo_interessato]);
+
+
+})-> name("articolo");

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articoli</title>
+    <title>Articolo</title>
 </head>
 <body style="margin: 0px;">
     
@@ -14,30 +14,22 @@
         <a href="{{route('articoli')}}" style="text-decoration: none !important;  color: rgba(255, 255, 255, 0.9) !important">Articoli</a>
 
     </div>
-    
-    <div style="display: flex; justify-content: center;">
-
-        <h1 >{{ $titolo }}</h1>
-    
-    </div>
 
     <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; width: 100%; height: 1000px; ">
     
-        @foreach ($articoli as $articolo)
-
         
-            <div style="height: 300px; width: 300px; background-color: black; color: white; display: flex; align-items: center; flex-direction: column; justify-content: center;">
+        <div style="height: 300px; width: 300px; background-color: black; color: white; display: flex; align-items: center; flex-direction: column; justify-content: center;">
 
-                <h2>{{ $articolo["title"] }}</h2>
-                <p style="font-size: small; height: 50px; width: 100px; background-color: yellow; border-radius: 100px; color: black; text-align: center; align-items: center; display: flex; justify-content: center; font-weight: bolder;">{{ $articolo["category"] }}</p>
-                <p>{{ $articolo["description"] }}</p>
-                <a href="{{route("articolo", ['id' => array_search($articolo, $articoli)])}}"> Visualizza l'articolo</a>
+                <h2>{{ $articolo_interessato["title"] }}</h2>
+                <p style="font-size: small; height: 50px; width: 100px; background-color: yellow; border-radius: 100px; color: black; text-align: center; align-items: center; display: flex; justify-content: center; font-weight: bolder;">{{ $articolo_interessato["category"] }}</p>
+                <p>{{ $articolo_interessato["description"] }}</p>
+                
 
-            </div>
+         </div>
 
           
 
-        @endforeach
+        
     
     </div>
     
