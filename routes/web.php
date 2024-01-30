@@ -15,26 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', function () {
+Route::get('/', [Main::class, 'index'])->name('home');
 
-    $titolo = 'Il mio blog';
-    return view('home', ['titolo' => $titolo]);
+Route::get('/articoli', [Main::class, 'articles'])->name("articoli");
 
-    
-})->name("home");
-
-Route::get("/articoli", function () {
-
-    $titolo = "Articoli";
-
-    $articoli = [0 => ["title" => "PC", "category" => "Elettronica", "description" => "PC molto potente per rendering."], 1 => ["title" => "Borsa", "category" => "Moda", "description" => "Borsa tracolla verde."]];
-
-    //$articoli = [];
-
-    return view("articoli", ['titolo' => $titolo, 'articoli' => $articoli]);
-
-
-})->name("articoli");
+Route::get('/chisono', [Main::class, 'contacts'])->name("chisono");
+;
 
 Route::get("/chisono", function () {
 
