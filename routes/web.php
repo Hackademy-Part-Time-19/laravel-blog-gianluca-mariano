@@ -15,24 +15,11 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/', [Main::class, 'index'])->name('home');
+Route::get('/', [MainController::class, 'index'])->name('home');
 
-Route::get('/articoli', [Main::class, 'articles'])->name("articoli");
+Route::get('/articoli', [MainController::class, 'articles'])->name("articoli");
 
-Route::get('/chisono', [Main::class, 'contacts'])->name("chisono");
-;
-
-Route::get("/chisono", function () {
-
-    $titolo = "Chi sono";
-
-    $bio = "Sono un programmatore HTML, CSS, JavaScript e PHP Junior e studio presso Aulab.";
-
-
-
-    return view("chisono", ['titolo' => $titolo, 'bio' => $bio]);
-
-})->name("chisono");
+Route::get('/chisono', [MainController::class, 'contacts'])->name("chisono");
 
 Route::get("/articolo/{id}", function ($id) {
 
