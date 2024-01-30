@@ -1,5 +1,5 @@
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,3 +16,17 @@
 
 </body>
 </html>
+
+-->
+
+<x-layout-main :titolo="$titolo">
+
+    <x-slot:title>Home</x-slot>  
+
+</x-layout-main>
+
+<div>
+
+        <h1 style="display: flex; justify-content: center;">{{ $titolo }}</h1>
+
+</div>

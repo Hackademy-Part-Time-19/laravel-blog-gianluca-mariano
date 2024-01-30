@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,3 +18,16 @@
 
 </body>
 </html>
+-->
+
+<x-layout-main :titolo="$titolo" :bio="$bio">
+
+    <x-slot:title>Chi sono</x-slot> 
+
+    
+
+</x-layout-main>
+
+    <h1>{{ $titolo }}</h1>
+
+    <p>{{ $bio }}</p>
