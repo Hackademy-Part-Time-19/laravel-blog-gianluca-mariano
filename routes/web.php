@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\MainController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,13 +23,4 @@ Route::get('/articoli', [MainController::class, 'articles'])->name("articoli");
 
 Route::get('/chisono', [MainController::class, 'contacts'])->name("chisono");
 
-Route::get("/articolo/{id}", function ($id) {
-
-    $articoli = [0 => ["title" => "PC", "category" => "Elettronica", "description" => "PC molto potente per rendering."], 1 => ["title" => "Borsa", "category" => "Moda", "description" => "Borsa tracolla verde."]];
-
-    $articolo_interessato = $articoli[$id];
-
-    return view("articolo",['articolo_interessato' => $articolo_interessato]);
-
-
-})-> name("articolo");
+Route::get("/articolo/{id}", [MainController::class, 'article'])-> name("articolo");

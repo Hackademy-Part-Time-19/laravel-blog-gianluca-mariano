@@ -34,4 +34,15 @@ class MainController extends Controller
 
 
     }
+
+    public function article($id) {
+
+        $articoli = [0 => ["title" => "PC", "category" => "Elettronica", "description" => "PC molto potente per rendering."], 1 => ["title" => "Borsa", "category" => "Moda", "description" => "Borsa tracolla verde."]];
+
+        $articolo_interessato = $articoli[$id];
+
+        return view("articolo",['articolo_interessato' => $articolo_interessato]);
+
+
+    }
 }
