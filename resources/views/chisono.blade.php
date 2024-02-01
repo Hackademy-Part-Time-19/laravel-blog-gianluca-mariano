@@ -24,10 +24,31 @@
 
     <x-slot:title>Chi sono</x-slot> 
 
-    
-
-</x-layout-main>
-
     <h1>{{ $titolo }}</h1>
 
     <p>{{ $bio }}</p>
+
+    <form action="{{ route('chisonopost') }}" method="post" >
+
+        @csrf
+        <input id="name" name="name" type="text">
+        <input id="email" name="email" type="email">
+        <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+
+        <button type="submit">Invia richiesta</button>
+
+
+    </form>
+
+    <br>
+    <br>
+
+    @if (session("sent") == true) 
+
+        <x-layout-succ>E-mail inviata con successo</x-layout-succ>
+    
+    @endif
+
+</x-layout-main>
+
+    

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::get('/articoli', [MainController::class, 'articles'])->name("articoli");
 
-Route::get('/chisono', [MainController::class, 'contacts'])->name("chisono");
+Route::get('/chisono', [ContactController::class, 'contacts'])->name("chisono");
+Route::post('/chisono', [ContactController::class, 'sendMail'] )->name("chisonopost");
 
 Route::get("/articolo/{id}", [MainController::class, 'article'])-> name("articolo");

@@ -27,7 +27,7 @@
 
 <div>
 
-        <h1 class="test1"> Test1</h1>
+        
 
         <h1 style="display: flex; justify-content: center;">{{ $titolo }}</h1>
 

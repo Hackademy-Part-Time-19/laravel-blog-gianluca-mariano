@@ -24,17 +24,6 @@ class MainController extends Controller
 
     }
 
-    public function contacts() {
-
-        $titolo = "Chi sono";
-
-        $bio = "Sono un programmatore HTML, CSS, JavaScript e PHP Junior e studio presso Aulab.";
-
-        return view("chisono", ['titolo' => $titolo, 'bio' => $bio]);
-
-
-    }
-
     public function article($id) {
 
         $articoli = [0 => ["title" => "PC", "category" => "Elettronica", "description" => "PC molto potente per rendering."], 1 => ["title" => "Borsa", "category" => "Moda", "description" => "Borsa tracolla verde."]];
