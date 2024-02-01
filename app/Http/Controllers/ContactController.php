@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use App\Mail\SendMsg;
 
@@ -21,9 +22,13 @@ class ContactController extends Controller
 
     public function sendMail(Request $request) {
 
-        $request->input('email');
+        $email = $request->input('email');
+        $name = $request->input('name');
+        $msg = $request->input('msg');
 
 
+
+        Mail::to('indirizzo@example.com')->send(new SendMsg($name,$email,$msg));
         
         return redirect()->route("chisono")->with("sent", true);
 
