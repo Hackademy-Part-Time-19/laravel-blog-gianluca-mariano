@@ -47,8 +47,11 @@
 
         <x-layout-succ>E-mail inviata con successo</x-layout-succ>
     
-    @endif
+    @elseif (session("notSent") == true) 
 
+        <x-layout-err>Compilare tutti i campi richiesti!</x-layout-err>
+
+    @endif
 </x-layout-main>
 
     

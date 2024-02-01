@@ -27,10 +27,22 @@ class ContactController extends Controller
         $msg = $request->input('msg');
 
 
-
-        Mail::to('indirizzo@example.com')->send(new SendMsg($name,$email,$msg));
+        if ($email != null && $name != null && $msg != null ) {
+            
+            Mail::to('indirizzo@example.com')->send(new SendMsg($name,$email,$msg));
         
-        return redirect()->route("chisono")->with("sent", true);
+            return redirect()->route("chisono")->with("sent", true);
+
+        } else {
+
+            return redirect()->route("chisono")->with("notSent", true);
+
+
+        }
+
+        
+        
+        
 
     }
 
