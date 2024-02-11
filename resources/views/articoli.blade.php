@@ -7,7 +7,7 @@
 </head>
 <body style="margin: 0px;">
     
-    <x-Navbar>
+    <x-Navbar style="z-index:100">
     </x-Navbar>
     
     <div style="display: flex; justify-content: center;">
@@ -16,7 +16,7 @@
     
     </div>
 
-    <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; width: 100%; height: 1000px; ">
+    <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; width: 100%; height: 2000px; ">
 
     @if (count($articoli) == 0)
         
@@ -53,7 +53,7 @@
     
     </div>
 
-    <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; width: 100%; height: 1000px; ">
+    <div style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; width: 100%; height: 2000px; ">
 
     @if (count($articoli) == 0)
         
