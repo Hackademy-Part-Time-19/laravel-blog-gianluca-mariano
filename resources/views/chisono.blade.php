@@ -52,6 +52,7 @@
         <x-layout-err>Compilare tutti i campi richiesti!</x-layout-err>
 
     @endif
+    
 </x-layout-main>
 
     

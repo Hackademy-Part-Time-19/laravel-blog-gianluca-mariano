@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
 use App\Models\Article;
+use App\Http\Controllers\ArticleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,6 @@ Route::get("/makearticles", function () {
     return route("home");
 
 });
+
+Route::get("/upload", [ArticleController::class, 'create'])->name("upload_article");
+Route::post("/upload", [ArticleController::class, 'store'])->name("upload_");
