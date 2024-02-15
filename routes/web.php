@@ -6,6 +6,8 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\ContactController;
 use App\Models\Article;
 use App\Http\Controllers\ArticleController;
+use App\Providers\FortifyServiceProvider;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,7 @@ Route::post('/chisono', [ContactController::class, 'sendMail'] )->name("chisonop
 
 Route::get("/articolo/{id}", [MainController::class, 'article'])-> name("articolo");
 
-Route::get("/makearticles", function () {
+/* //Route::get("/makearticles", function () {
 
     Article::create([
 
@@ -60,7 +62,18 @@ Route::get("/makearticles", function () {
 
     return route("home");
 
-});
+//}); */
 
 Route::get("/upload", [ArticleController::class, 'create'])->name("upload_article");
 Route::post("/upload", [ArticleController::class, 'store'])->name("upload_");
+
+//Route::get("/login", [FortifyServiceProvider::class, 'boot']);
+
+
+Route::middleware("auth")->group(function () {
+
+    Route::get("/profile", [App\Http\Controllers\ProfileController::class, "index"]);
+
+
+});
+
