@@ -2,9 +2,9 @@
     
         <a href="{{route('home')}}" style="text-decoration: none !important;  color: rgba(255, 255, 255, 0.9) !important">Home</a>
         <a href="{{route('chisono')}}" style="text-decoration: none !important;  color: rgba(255, 255, 255, 0.9) !important">Chi sono</a>
-        <a href="{{route('articoli')}}" style="text-decoration: none !important;  color: rgba(255, 255, 255, 0.9) !important">Articoli</a>
+        <a href="{{route('articles.index')}}" style="text-decoration: none !important;  color: rgba(255, 255, 255, 0.9) !important">Articoli</a>
 
-        <a href="{{route('upload_article')}}" style="text-decoration: none !important;  color: rgba(255, 255, 255, 0.9) !important">Upload</a>
+        <a href="{{route('articles.create')}}" style="text-decoration: none !important;  color: rgba(255, 255, 255, 0.9) !important">Upload</a>
 
         @auth
                 <form action="{{route("logout")}}" method="POST">

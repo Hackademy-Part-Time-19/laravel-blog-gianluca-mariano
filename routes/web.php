@@ -8,6 +8,7 @@ use App\Models\Article;
 use App\Http\Controllers\ArticleController;
 use App\Providers\FortifyServiceProvider;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +25,12 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [MainController::class, 'index'])->name('home');
 
-Route::get('/articoli', [MainController::class, 'articles'])->name("articoli");
+//Route::get('/articoli', [MainController::class, 'articles'])->name("articoli");
 
 Route::get('/chisono', [ContactController::class, 'contacts'])->name("chisono");
 Route::post('/chisono', [ContactController::class, 'sendMail'] )->name("chisonopost");
 
-Route::get("/articolo/{id}", [MainController::class, 'article'])-> name("articolo");
+//Route::get("/articolo/{id}", [MainController::class, 'article'])-> name("articolo");
 
 /* //Route::get("/makearticles", function () {
 
@@ -64,9 +65,6 @@ Route::get("/articolo/{id}", [MainController::class, 'article'])-> name("articol
 
 //}); */
 
-Route::get("/upload", [ArticleController::class, 'create'])->name("upload_article");
-Route::post("/upload", [ArticleController::class, 'store'])->name("upload_");
-
 //Route::get("/login", [FortifyServiceProvider::class, 'boot']);
 
 
@@ -74,6 +72,11 @@ Route::middleware("auth")->group(function () {
 
     Route::get("/profile", [App\Http\Controllers\ProfileController::class, "index"]);
 
+    Route::resource('categories', CategoryController::class);
+
+    Route::resource('articles', ArticleController::class);
+
 
 });
+
 
