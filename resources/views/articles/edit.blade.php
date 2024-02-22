@@ -27,9 +27,20 @@
         <input value="{{old('description' , $article)}}" name="description" id="description" cols="30" rows="10">
 
        
-        <label for="category">Categoria&nbsp;</label>
+        <label for="category_id">Categoria&nbsp;</label>
         @error('category') <span style="color: red; background-color: rgba(255, 0, 0, 0.2); border-radius: 20px; text-align: center;">{{"Il campo non può essere vuoto!"}}</span> @enderror
-        <input value="{{old('category' , $article)}}" type="text" name="category" id="category">
+        <select name="category_id" id="category_id">
+
+            
+            @foreach ($categories as $category)
+                
+            <option value="{{$category["id"]}}">{{$category["name"]}}</option>
+
+
+            @endforeach
+            
+
+        </select>
 
 
         <br>

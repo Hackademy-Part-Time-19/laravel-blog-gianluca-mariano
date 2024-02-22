@@ -10,7 +10,7 @@
 <div style="display: flex; flex-direction: column;justify-content: center; align-items: center;">
 
 
-    <form enctype="multipart/form-data" action=" {{ route('articles.store') }}" method="POST" style="display: flex; flex-direction: column; width: 500px; align-items: center; ">
+    <form enctype="multipart/form-data" action=" {{route('articles.store')}}" method="POST" style="display: flex; flex-direction: column; width: 500px; align-items: center; ">
 
         @csrf
 
@@ -26,22 +26,20 @@
         <input value="{{old('description')}}" name="description" id="description" cols="30" rows="10">
 
        
-        <label for="category">Categoria&nbsp;</label>
+        <label for="category_id">Categoria&nbsp;</label>
 
-        <select name="category" id="category">
-
+        <select name="category_id">
             
             @foreach ($categories as $category)
                 
-            <option value="{{$category["name"]}}">{{$category["name"]}}</option>
-
+            <option value="{{$category["id"]}}">{{$category["name"]}}</option>
 
             @endforeach
             
 
         </select>
 
-        @error('category') <span style="color: red; background-color: rgba(255, 0, 0, 0.2); border-radius: 20px; text-align: center;">{{"Il campo non può essere vuoto!"}}</span> @enderror
+        @error('category_id') <span style="color: red; background-color: rgba(255, 0, 0, 0.2); border-radius: 20px; text-align: center;">{{"Il campo non può essere vuoto!"}}</span> @enderror
 
 
         <label for="image">Immagine&nbsp;</label>

@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('articles', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-            $table->string("title",50);
-            $table->unsignedBigInteger("category_id");
-            $table->string("description",250);
-            $table->string("body")->nullable();
+        Schema::table('articles', function (Blueprint $table) {
+            //
             
+            $table->foreign("category_id")->references("id")->on("categories");
+
         });
     }
 
@@ -27,6 +24,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('articles');
+        Schema::table('articles', function (Blueprint $table) {
+            //
+
+            $table->dropForeign(["category_id"]);
+            $table->dropColumn("category_id");
+
+        });
     }
 };

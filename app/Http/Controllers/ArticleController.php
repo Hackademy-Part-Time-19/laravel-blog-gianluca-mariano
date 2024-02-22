@@ -52,12 +52,13 @@ class ArticleController extends Controller
 
             $imagePath = null;
 
-            Article::create([
+            auth()->user()->article()->create([
 
                 "title" => $request->input("title"),
                 "description" => $request->input("description"),
-                "category" => $request->input("category"),
-                "image" => $imagePath,            
+                "category_id" => $request->input("category_id"),
+                "image" => $imagePath,  
+                "user_id" =>  auth()->user()->id,    
     
             ]);
     
@@ -89,7 +90,10 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         //
-        return view("articles.edit", ["article" => $article]);
+
+        $categories = Category::all();
+
+        return view("articles.edit", ["article" => $article, "categories" => $categories]);
         
 
     }
@@ -105,7 +109,7 @@ class ArticleController extends Controller
 
             "title" => $request["title"],
             "description" => $request["description"],
-            "category" => $request["category"],       
+            "category_id" => $request["category_id"],       
 
         ]);
 
