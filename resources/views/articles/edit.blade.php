@@ -29,18 +29,20 @@
        
         <label for="category_id">Categoria&nbsp;</label>
         @error('category') <span style="color: red; background-color: rgba(255, 0, 0, 0.2); border-radius: 20px; text-align: center;">{{"Il campo non può essere vuoto!"}}</span> @enderror
-        <select name="category_id" id="category_id">
+        
 
             
             @foreach ($categories as $category)
-                
-            <option value="{{$category["id"]}}">{{$category["name"]}}</option>
 
+            <div>
+            <input type="checkbox" name="categories[]" id="" value="{{$category["id"]}}"{{ $article->categories->contains($category) ? 'checked' : '' }}>{{$category["name"]}}
+            </div>
+            <br>
 
             @endforeach
             
 
-        </select>
+        
 
 
         <br>

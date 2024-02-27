@@ -13,7 +13,9 @@
 
                 <h2>{{ $article["title"] }}</h2>
                 <p style="font-size: small; height: 50px; width: 100px; background-color: yellow; border-radius: 100px; color: black; text-align: center; align-items: center; display: flex; justify-content: center; font-weight: bolder;">{{ $article["category"] }}</p>
-                <p>{{ $article->category->name }}</p>
+                <p>@foreach ($article->categories as $category)
+                    {{$category->name}}
+            @endforeach</p>
                 <div>
 
                     <a href="{{ route("articles.edit",["article" => $article["id"] ])}}">Edit</a>

@@ -26,18 +26,17 @@
         <input value="{{old('description')}}" name="description" id="description" cols="30" rows="10">
 
        
-        <label for="category_id">Categoria&nbsp;</label>
-
-        <select name="category_id">
+        <label for="categories[]">Categoria&nbsp;</label>
+       
             
             @foreach ($categories as $category)
-                
-            <option value="{{$category["id"]}}">{{$category["name"]}}</option>
+            <div>
+            <input type="checkbox" name="categories[]" id="" value="{{$category["id"]}}">{{$category["name"]}}
+            </div>
+            <br>
 
             @endforeach
-            
-
-        </select>
+        
 
         @error('category_id') <span style="color: red; background-color: rgba(255, 0, 0, 0.2); border-radius: 20px; text-align: center;">{{"Il campo non può essere vuoto!"}}</span> @enderror
 

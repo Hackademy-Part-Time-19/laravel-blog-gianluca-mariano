@@ -52,18 +52,17 @@ class ArticleController extends Controller
 
             $imagePath = null;
 
-            auth()->user()->article()->create([
+            $article = auth()->user()->article()->create([
 
                 "title" => $request->input("title"),
                 "description" => $request->input("description"),
-                "category_id" => $request->input("category_id"),
+                
                 "image" => $imagePath,  
                 "user_id" =>  auth()->user()->id,    
     
             ]);
-    
-            
 
+            $article->categories()->attach($request->input("categories"));
 
         }
 
@@ -101,7 +100,7 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(StoreArticleRequest $request, Article $article)
     {
         //
 
@@ -109,9 +108,13 @@ class ArticleController extends Controller
 
             "title" => $request["title"],
             "description" => $request["description"],
-            "category_id" => $request["category_id"],       
+                 
 
         ]);
+       
+        $article->categories()->detach();
+
+        $article->categories()->attach($request->input("categories"));
 
         return view("articles.article", ["article" => $article]);
     }
@@ -122,7 +125,7 @@ class ArticleController extends Controller
     public function destroy(Article $article)
     {
         //
-
+        $article->categories()->detach();
         $article->delete();
 
 

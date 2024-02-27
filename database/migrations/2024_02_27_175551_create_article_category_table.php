@@ -11,11 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('articles', function (Blueprint $table) {
-            //
-            
-            $table->foreign("category_id")->references("id")->on("categories");
+        Schema::create('article_category', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->unsignedBigInteger("article_id");
+            $table->unsignedBigInteger("category_id");
 
+            $table->foreign("article_id")->references("id")->on("articles");
+            $table->foreign("category_id")->references("id")->on("categories");
         });
     }
 
@@ -24,12 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('articles', function (Blueprint $table) {
-            //
-
-            $table->dropForeign(["category_id"]);
-            $table->dropColumn("category_id");
-
-        });
+        Schema::dropIfExists('article_category');
     }
 };

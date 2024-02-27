@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Article;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Category extends Model
 {
@@ -14,9 +15,9 @@ class Category extends Model
 
     protected $fillable = [ "name",];
 
-    public function articles(): HasMany {
+    public function articles(): BelongsToMany {
 
-        return $this->hasMany(Article::class);
+        return $this->belongsToMany(Article::class);
 
     }
 
