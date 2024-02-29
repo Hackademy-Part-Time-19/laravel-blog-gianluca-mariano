@@ -16,6 +16,9 @@
 
     
     {{ $slot }}
+
+
+    <livewire:counter/>
     
     
 

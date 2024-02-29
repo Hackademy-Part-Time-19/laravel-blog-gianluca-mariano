@@ -79,4 +79,10 @@ Route::middleware("auth")->group(function () {
 
 });
 
+Route::get("/searchusers",[function () {
+    
+    return view("searchview");
+
+
+}]);
 
